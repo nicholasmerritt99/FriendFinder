@@ -16,9 +16,7 @@
 			<div class="form-group">
 				<input id="name" type="text" class="form-control" placeholder="Name (Required)">
 			</div>
-			<div class="form-group">
-				<input id="photo" type="text" class="form-control" placeholder="Link to Profile Photo (Required)">
-			</div>
+			
 			<div class="form-group">
 				<label for="question1">I like to party.</label>
 				<select class="form-control" id="question1">
@@ -144,7 +142,6 @@
 					</div>
 					<div class="modal-body">
 						<h2 id="bestFriend"></h2>
-						<img id="bestFriendPhoto" src="#">
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -167,7 +164,7 @@
 		event.preventDefault();
 		// Form validation
 		var valid = true;
-		if($("#name").val() === "" || $("#photo").val() === "") {
+		if($("#name").val() === "") {
 			valid = false;
 		} else if($("#question1").val() === "empty" || $("#question2").val() === "empty" || $("#question3").val() === "empty" || $("#question4").val() === "empty" || $("#question5").val() === "empty" || $("#question6").val() === "empty" || $("#question7").val() === "empty" || $("#question8").val() === "empty" || $("#question9").val() === "empty" || $("#question10").val() === "empty") {
 			valid = false;
@@ -175,7 +172,6 @@
 		if(valid === true) {
 			var newUser = {
 				name: $("#name").val().trim(),
-				photo: $("#photo").val().trim(),
 				scores: [
 					$("#question1").val(),
 					$("#question2").val(),
@@ -193,11 +189,10 @@
 
 			$.post(currentURL + "/api/friends", newUser, function(data) {
 				$("#bestFriend").text(data.name);
-				$("#bestFriendPhoto").attr("src", data.photo);
 				$("#bestFriendModal").modal("toggle");
 			});
 		} else {
-			
+
 			alert("Survey is incomplete!");
 		}
 	});
