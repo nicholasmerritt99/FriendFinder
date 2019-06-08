@@ -20,7 +20,7 @@
 				<input id="photo" type="text" class="form-control" placeholder="Link to Profile Photo (Required)">
 			</div>
 			<div class="form-group">
-				<label for="question1">I like to do janitorial work.</label>
+				<label for="question1">I like to party.</label>
 				<select class="form-control" id="question1">
 					<option value="empty"></option>
 					<option value="1">1</option>
@@ -31,7 +31,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<label for="question2">I have some bird-like features (or so I've been told).</label>
+				<label for="question2">I like Movies.</label>
 				<select class="form-control" id="question2">
 					<option value="empty"></option>
 					<option value="1">1</option>
@@ -75,7 +75,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<label for="question6">I am God's gift to the opposite sex.</label>
+				<label for="question6">I am funny.</label>
 				<select class="form-control" id="question6">
 					<option value="empty"></option>
 					<option value="1">1</option>
@@ -86,7 +86,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<label for="question7">I don't so well with the opposite sex.</label>
+				<label for="question7">I don't so talk a lot.</label>
 				<select class="form-control" id="question7">
 					<option value="empty"></option>
 					<option value="1">1</option>
@@ -119,7 +119,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<label for="question10">I consider myself aggressive.</label>
+				<label for="question10">I am go out to the movies a lot.</label>
 				<select class="form-control" id="question10">
 					<option value="empty"></option>
 					<option value="1">1</option>
@@ -190,14 +190,14 @@
 				]
 			};
 			var currentURL = window.location.origin;
-			// Ajax call for receiving response after POST req
+
 			$.post(currentURL + "/api/friends", newUser, function(data) {
 				$("#bestFriend").text(data.name);
 				$("#bestFriendPhoto").attr("src", data.photo);
 				$("#bestFriendModal").modal("toggle");
 			});
 		} else {
-			// If a required field is missing, show alert
+			
 			alert("Survey is incomplete!");
 		}
 	});
